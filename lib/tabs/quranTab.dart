@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:islami_app/myThemedata.dart';
 
+import '../surahDetails.dart';
+import '../surah_Model.dart';
+
 class Quran extends StatelessWidget {
   List<String>SuraNames=["الفاتحه","البقرة","آل عمران","النساء","المائدة","الأنعام","الأعراف","الأنفال","التوبة","يونس","هود"
   ,"يوسف","الرعد","إبراهيم","الحجر","النحل","الإسراء","الكهف","مريم","طه","الأنبياء","الحج","المؤمنون"
@@ -41,9 +44,16 @@ class Quran extends StatelessWidget {
                );
              },
              itemBuilder:(context, index){
-               return Text(SuraNames[index],
-                 textAlign:TextAlign.center ,
-                 style:Theme.of(context).textTheme.bodySmall ,
+               return InkWell(
+                 onTap: () {
+                   Navigator.of(context).pushNamed(SurahDetails.routeName,
+                   arguments: SurahModel(index:index,surahName:SuraNames[index])
+                   );
+                 },
+                 child: Text(SuraNames[index],
+                   textAlign:TextAlign.center ,
+                   style:Theme.of(context).textTheme.bodySmall ,
+                 ),
                );
              } ,
              itemCount: SuraNames.length,

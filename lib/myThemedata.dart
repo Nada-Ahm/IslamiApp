@@ -6,6 +6,10 @@ class MythemeData {
    static ThemeData lightMode=ThemeData(
        scaffoldBackgroundColor:Colors.transparent,
        appBarTheme: AppBarTheme(
+         iconTheme: IconThemeData(
+           color:beegColor,
+           size:35,
+         ),
          centerTitle: true,
          backgroundColor:Colors.transparent,
          elevation:0.0,
